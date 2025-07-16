@@ -1,61 +1,39 @@
-# CodeAlpha_Hangman-Game
-import random
+# Hangman Game (Python)
 
-# List of words to guess from
-word_list = ["apple", "chair", "zebra", "snake", "grape"]
+This is a simple Hangman game I made using Python as part of my internship task.  
+It runs in the terminal and allows the user to guess a randomly selected word letter by letter.
 
-# Randomly select one word
-selected_word = random.choice(word_list)
+---
 
-# Uncomment the line below only if you want to test the selected word
-# print("The word is:", selected_word)
+## 👨‍💻 About Me
 
-# To keep track of correct guesses
-guessed_letters = []
-chances = 6
+Hi, I'm **Tarun Reddy M**, currently doing an internship in Python programming.  
+This project was assigned as a part of the internship tasks and helped me practice Python basics like loops, conditions, and string handling.
 
-print("Hangman Game - Created by Tarun")
-print("You have 6 chances to guess the correct word.\n")
+---
 
-# Main game loop
-while True:
-    current_state = ""
-    for ch in selected_word:
-        if ch in guessed_letters:
-            current_state += ch + " "
-        else:
-            current_state += "_ "
-    print("Word:", current_state.strip())
+## 📌 What the Game Does
 
-    # Win check
-    if all(letter in guessed_letters for letter in selected_word):
-        print("\nYou guessed it right! The word was:", selected_word)
-        break
+- The program selects a word from a small list.
+- You get **6 chances** to guess the word.
+- You need to type one letter at a time.
+- If the letter is in the word, it will be shown in the correct position.
+- If not, your number of tries will reduce.
+- The game ends when you guess the full word or run out of tries.
 
-    # Take input from user
-    user_input = input("Enter a letter: ").lower()
+---
 
-    # Check for valid input
-    if not user_input.isalpha() or len(user_input) != 1:
-        print("Enter only a single alphabet letter.")
-        continue
+## 💻 Tools Used
 
-    # Check if letter already guessed
-    if user_input in guessed_letters:
-        print("You already tried that letter.")
-        continue
+- Python 3
+- VS Code (you can use any editor)
 
-    # Add the guess to the list
-    guessed_letters.append(user_input)
+---
 
-    # Check if the guess is correct
-    if user_input in selected_word:
-        print("Nice! That letter is in the word.")
-    else:
-        chances -= 1
-        print("Wrong guess. Tries left:", chances)
+## ▶️ How to Run It
 
-    # Loss check
-    if chances == 0:
-        print("\nYou lost! The correct word was:", selected_word)
-        break
+1. Download or clone this repo.
+2. Open `hangman.py` in any Python editor.
+3. Run the program using:
+   ```bash
+   python hangman.py
